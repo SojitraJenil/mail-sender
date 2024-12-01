@@ -12,7 +12,7 @@ export default async function handler(req: any, res: any) {
 
       console.log("Received Data:", { name, email, message }); // Improved logging
 
-      let transporter = nodemailer.createTransport({
+      const transporter = nodemailer.createTransport({
         service: "Gmail",
         auth: {
           user: process.env.EMAIL_USER,
