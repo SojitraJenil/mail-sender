@@ -1,7 +1,6 @@
 import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 
-// Type definition for form data
 interface FormData {
   name: string;
   email: string;
@@ -17,14 +16,12 @@ export default function SendMail() {
   const [isMsgSend, setIsMsgSend] = useState<boolean>(false);
   const [isLoader, setIsLoader] = useState<boolean>(false);
 
-  // Change event handler with proper typing
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Form submission handler with proper typing
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsLoader(true);

@@ -15,7 +15,7 @@ export default async function handler(
           .json({ message: "Missing fields in the form data" });
       }
 
-      console.log("Received Data:", { name, email, message }); // Improved logging
+      console.log("Received Data:", { name, email, message });
 
       const transporter = nodemailer.createTransport({
         service: "Gmail",
@@ -36,12 +36,10 @@ export default async function handler(
       res.status(200).json({ message: "Email sent successfully!" });
     } catch (error) {
       console.error("Error sending email:", error);
-      res
-        .status(500)
-        .json({
-          message: "Error sending email",
-          error: (error as Error).message,
-        });
+      res.status(500).json({
+        message: "Error sending email",
+        error: (error as Error).message,
+      });
     }
   } else {
     res.status(405).json({ message: "Method Not Allowed" });
