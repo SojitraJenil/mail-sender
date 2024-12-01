@@ -15,6 +15,7 @@ export default function SendMail() {
   });
   const [isMsgSend, setIsMsgSend] = useState<boolean>(false);
   const [isLoader, setIsLoader] = useState<boolean>(false);
+  console.log("Hello");
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
