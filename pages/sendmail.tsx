@@ -1,20 +1,31 @@
 import axios from "axios";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
+
+// Type definition for form data
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export default function SendMail() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
-  const [isMsgSend, setIsMsgSend] = useState(false);
-  const [isLoader, setIsLoader] = useState(false);
+  const [isMsgSend, setIsMsgSend] = useState<boolean>(false);
+  const [isLoader, setIsLoader] = useState<boolean>(false);
 
-  const handleChange = (e: any) => {
+  // Change event handler with proper typing
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: any) => {
+  // Form submission handler with proper typing
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsLoader(true);
     setIsMsgSend(false);
