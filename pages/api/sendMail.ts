@@ -32,8 +32,8 @@ export default async function handler(
         text: message,
       };
 
-      await transporter.sendMail(mailOptions);
-      res.status(200).json({ message: "Email sent successfully!" });
+      const response = await transporter.sendMail(mailOptions);
+      res.status(200).json({ message: "Email sent successfully!",data:response });
     } catch (error) {
       console.error("Error sending email:", error);
       res.status(500).json({
