@@ -38,35 +38,32 @@ function SendMail() {
   });
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-green-100">
-      <div className="max-w-lg w-full bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold text-center mb-4 text-gray-600">
+    <div className="flex justify-center items-center min-h-screen bg-[#cde6dc]">
+      <div className="max-w-lg w-full bg-[#fdfdf5] p-8 rounded-lg shadow-lg">
+        <h2 className="text-2xl font-bold font-sans text-center text-gray-600 mb-4">
           Share Your Ideas
         </h2>
-        <h3 className="text-xl font-medium text-center mb-6 text-gray-700">
-          Contact us
-        </h3>
         <form onSubmit={formik.handleSubmit} className="space-y-4">
           <textarea
             name="message"
             value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className="w-full h-24 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-full h-24 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-gray-200 bg-[#fffef7] placeholder-gray-500 text-gray-700"
             placeholder="Your message"
           />
           {formik.touched.message && formik.errors.message && (
             <span className="text-red-600">{formik.errors.message}</span>
           )}
 
-          <div className="space-y-2">
+          <div className="space-y-3">
             <input
               type="text"
               name="name"
               value={formik.values.name}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-gray-200 bg-[#fffef7] placeholder-gray-500 text-gray-700"
               placeholder="Your name"
             />
             {formik.touched.name && formik.errors.name && (
@@ -79,7 +76,7 @@ function SendMail() {
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-gray-200 bg-[#fffef7] placeholder-gray-500 text-gray-700"
               placeholder="Your email"
             />
             {formik.touched.email && formik.errors.email && (
@@ -90,7 +87,7 @@ function SendMail() {
           <button
             type="submit"
             disabled={isLoader}
-            className="w-full bg-blue-500 text-white font-medium p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-24 bg-gray-600 text-white font-medium p-2 rounded-md hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-400 ml-auto"
           >
             {isLoader ? "Sending..." : "Send"}
           </button>
