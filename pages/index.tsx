@@ -1,4 +1,4 @@
-import SendMail from "./sendmail";
+import SendMail from "./SendEmail";
 
 export default function Home() {
   return (
